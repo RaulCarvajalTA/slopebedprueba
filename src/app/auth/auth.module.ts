@@ -6,6 +6,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { CommonUtilsModule } from "../common/common-utils.module";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,9 @@ import { CommonUtilsModule } from "../common/common-utils.module";
     IonicModule,
     CommonModule,
     AuthRoutingModule,
-    CommonUtilsModule
+    CommonUtilsModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class AuthModule { }

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { DocumentationComponent } from './documentation.component';
 import { DocuemntationRoutingModule } from './documentation-routing.module';
+import { CommonUtilsModule } from 'src/app/common/common-utils.module';
 
 
 
@@ -13,7 +14,8 @@ import { DocuemntationRoutingModule } from './documentation-routing.module';
   imports: [
     CommonModule,
     IonicModule,
-    DocuemntationRoutingModule
+    DocuemntationRoutingModule,
+    CommonUtilsModule
   ],
   exports: [
     DocumentationComponent

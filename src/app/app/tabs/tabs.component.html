@@ -3,28 +3,34 @@
   <ion-tab-bar slot="bottom" color="primary">
     <ion-tab-button tab="home">
       <ion-icon aria-hidden="true" name="home"></ion-icon>
-      <ion-label>Home</ion-label>
+      <ion-label *ngIf="navigator">Home</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="control">
       <ion-icon aria-hidden="true" name="move"></ion-icon>
-      <ion-label>Control</ion-label>
+      <ion-label *ngIf="navigator">Control</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="my-programs">
       <ion-icon aria-hidden="true" name="hammer"></ion-icon>
-      <ion-label>My Programs</ion-label>
+      <ion-label *ngIf="navigator">My Programs</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="programs">
       <ion-icon aria-hidden="true" name="list"></ion-icon>
-      <ion-label>Programs</ion-label>
+      <ion-label *ngIf="navigator">Programs</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="documentation">
-      <ion-icon aria-hidden="true" name="copy"></ion-icon>
-      <ion-label>Documentation</ion-label>
+      <ion-icon aria-hidden="true" name="documents"></ion-icon>
+      <ion-label *ngIf="navigator">Documentation</ion-label>
     </ion-tab-button>
+
+    <ion-tab-button tab="settings">
+      <ion-icon aria-hidden="true" name="cog"></ion-icon>
+      <ion-label *ngIf="navigator">Settings</ion-label>
+    </ion-tab-button>
+    
   </ion-tab-bar>
 
 </ion-tabs>

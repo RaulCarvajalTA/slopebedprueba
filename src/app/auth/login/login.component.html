@@ -1,23 +1,46 @@
-<div class="container">
+<ion-content class="ion-padding">
   <div class="row">
     <img src="assets/LOGOtipografiaSlopebed.png" class="p-5">
   </div>
-  <div class="row mt-5">
-    <ion-input class="w-100" label="Email" labelPlacement="stacked" placeholder="Enter your mail"></ion-input>
-  </div>
-  <div class="row">
-    <ion-input class="w-100" label="Password" labelPlacement="stacked" placeholder="Enter your Password" type="password"></ion-input>
-  </div>
-  <div class="row mt-5 text-end">
-    <a href="/reeset">Forgot Your Password?</a>
-  </div>
-  <div class="row mt-5">
-    <ion-button (click)="onLogin()">Login</ion-button> 
-  </div>
+
+  <form [formGroup]="loginForm">
+
+    <div class="row mt-5">
+      <ion-input formControlName="email" class="w-100 m-2" label="Email" labelPlacement="stacked" placeholder="Enter your mail"></ion-input>
+    </div>
+
+    <div class="row">
+      <ion-input formControlName="password" class="w-100 m-2" label="Password" labelPlacement="stacked" placeholder="Enter your Password" type="password"></ion-input>
+    </div>
+
+    <div class="row mt-5 text-end">
+      <a href="/reeset">Forgot Your Password?</a>
+    </div>
+
+    <div class="row mt-5">
+      <ion-button (click)="onLogin()" [disabled]="loginForm.invalid || logginIn">
+        <span *ngIf="!logginIn">Login</span>
+        <ion-spinner *ngIf="logginIn" name="dots"></ion-spinner>
+      </ion-button> 
+    </div>
+    <div class="row text-center">
+      
+    </div>
+  </form>
+
+  <ion-alert
+    [isOpen]="isAlertOpen"
+    header="Atention"
+    subHeader="Login Error"
+    [message]="messageError"
+    [buttons]="alertButtons"
+    (didDismiss)="setOpen(false)"
+  ></ion-alert>
+  
   <div class="row">
     <ion-button fill="outline">New Account</ion-button> 
   </div>
   <div class="row mt-5">
     <ion-button fill="clear">Privacy</ion-button> 
   </div>
-</div>
+</ion-content>

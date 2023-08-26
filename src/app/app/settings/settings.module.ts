@@ -1,24 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
-import { MyProgramsComponent } from './my-programs.component';
-import { MyProgramsRoutingModule } from './my-programs-routing.module';
-import { CommonUtilsModule } from 'src/app/common/common-utils.module';
 
+import { SettingsRoutingModule } from './settings-routing.module';
+import { IonicModule } from '@ionic/angular';
+import { SettingsComponent } from './settings.component';
+import { CommonUtilsModule } from 'src/app/common/common-utils.module';
+import { BleService } from 'src/app/common/services/ble.service';
 
 
 @NgModule({
   declarations: [
-    MyProgramsComponent
-  ],
-  exports: [
-    MyProgramsComponent
+    SettingsComponent
   ],
   imports: [
     CommonModule,
+    SettingsRoutingModule,
     IonicModule,
-    MyProgramsRoutingModule,
     CommonUtilsModule
+  ],
+  providers: [
+    BleService
   ]
 })
-export class MyProgramsModule { }
+export class SettingsModule { }

@@ -28,6 +28,10 @@ const routes: Routes = [
         loadChildren: () => import('./documentation/documentation.module').then(m => m.DocumentationModule)
       },
       {
+        path: 'settings',
+        loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule)
+      },
+      {
         path: '',
         redirectTo: '/app/home',
         pathMatch: 'full'

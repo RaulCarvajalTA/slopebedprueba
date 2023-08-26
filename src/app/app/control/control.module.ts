@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { ControlComponent } from './control.component';
 import { ControlRoutingModule } from './control-routing.module';
+import { CommonUtilsModule } from 'src/app/common/common-utils.module';
 
 
 
@@ -13,7 +14,8 @@ import { ControlRoutingModule } from './control-routing.module';
   imports: [
     CommonModule,
     IonicModule,
-    ControlRoutingModule
+    ControlRoutingModule,
+    CommonUtilsModule
   ],
   exports: [
     ControlComponent

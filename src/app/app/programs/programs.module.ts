@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { ProgramsComponent } from './programs.component';
 import { ProgramsRoutingModule } from './programs-routing.module';
+import { CommonUtilsModule } from 'src/app/common/common-utils.module';
 
 
 
@@ -16,7 +17,8 @@ import { ProgramsRoutingModule } from './programs-routing.module';
   imports: [
     CommonModule,
     IonicModule,
-    ProgramsRoutingModule
+    ProgramsRoutingModule,
+    CommonUtilsModule
   ]
 })
 export class ProgramsModule { }

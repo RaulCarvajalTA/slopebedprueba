@@ -5,7 +5,16 @@ const config: CapacitorConfig = {
   appName: 'Slopebed-Front',
   webDir: 'www',
   server: {
-    androidScheme: 'https'
+    androidScheme: 'http'
+  },
+  android: {
+    allowMixedContent: true
+  },
+  cordova: {
+    preferences: {
+      bluetooth_restore_state: "true",
+      accessBackgroundLocation: "false",
+    },
   }
 };
 

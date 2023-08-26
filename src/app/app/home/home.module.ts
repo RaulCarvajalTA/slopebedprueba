@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
+import { CommonUtilsModule } from 'src/app/common/common-utils.module';
+import { BleService } from 'src/app/common/services/ble.service';
 
 
 @NgModule({
@@ -12,10 +14,14 @@ import { HomeRoutingModule } from './home-routing.module';
   imports: [
     CommonModule,
     IonicModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    CommonUtilsModule
   ],
   exports: [
     HomeComponent
+  ],
+  providers: [
+    BleService
   ]
 })
 export class HomeModule { }

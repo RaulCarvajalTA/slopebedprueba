@@ -4,6 +4,8 @@ import { IonicModule } from '@ionic/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { TabsComponent } from './tabs/tabs.component';
+import { BleService } from '../common/services/ble.service';
+import { CommonUtilsModule } from '../common/common-utils.module';
 
 
 @NgModule({
@@ -13,7 +15,11 @@ import { TabsComponent } from './tabs/tabs.component';
   imports: [
     CommonModule,
     AppRoutingModule,
-    IonicModule
+    IonicModule,
+    CommonUtilsModule
+  ],
+  providers: [
+    BleService
   ]
 })
 export class AppModule { }

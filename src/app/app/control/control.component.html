@@ -1,10 +1,4 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Manual Control
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-toolbar title="Manual Control"></app-toolbar>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
@@ -14,4 +8,44 @@
   </ion-header>
 
   <!--<app-explore-container name="Tab 1 page"></app-explore-container>-->
+  <div class="row">
+    <div class="col">
+      <ion-card class="text-center card-animation">
+        <ion-card-header>
+          <ion-card-title>Animación</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <ion-card class="text-center card-angle">
+        <ion-card-header>
+          <ion-card-title>Bed Angle</ion-card-title>
+        </ion-card-header>
+        <h3>0°</h3>
+      </ion-card>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col">
+      <ion-fab-button class="mx-auto">
+        <ion-icon name="chevron-up"></ion-icon>
+      </ion-fab-button>
+    </div>
+    <div class="col">
+      <ion-fab-button class="mx-auto">
+        <ion-icon name="bed"></ion-icon>0°
+      </ion-fab-button>
+    </div>
+    <div class="col">
+      <ion-fab-button class="mx-auto">
+        <ion-icon name="chevron-down"></ion-icon>
+      </ion-fab-button>
+    </div>
+  </div>
+
+
 </ion-content>
