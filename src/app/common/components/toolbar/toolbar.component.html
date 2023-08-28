@@ -4,8 +4,8 @@
     <ion-title>
       {{title}}
     </ion-title>
-    <ion-title style="font-size: smaller;" *ngIf="deviceConnected$ | async as device">
-      Connected to {{device.name}}
+    <ion-title style="font-size: smaller;">
+      Connected to {{deviceConectedName}}
     </ion-title>
 
     <ion-buttons slot="end">

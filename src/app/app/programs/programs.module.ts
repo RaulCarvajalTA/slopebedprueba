@@ -6,7 +6,6 @@ import { ProgramsRoutingModule } from './programs-routing.module';
 import { CommonUtilsModule } from 'src/app/common/common-utils.module';
 
 
-
 @NgModule({
   declarations: [
     ProgramsComponent

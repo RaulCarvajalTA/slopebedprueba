@@ -16,9 +16,6 @@ import { CommonUtilsModule } from 'src/app/common/common-utils.module';
     IonicModule,
     DocuemntationRoutingModule,
     CommonUtilsModule
-  ],
-  exports: [
-    DocumentationComponent
   ]
 })
 export class DocumentationModule { }

@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path: 'app',
     canActivate: [ AuthGuard ],
-    loadChildren: () => import('./app/app.module').then(m => m.AppModule)
+    loadChildren: () => import('./app/slopebed.module').then(m => m.SlopebedModule)
   },
   {
     path: '',

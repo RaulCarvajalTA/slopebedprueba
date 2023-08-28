@@ -11,22 +11,13 @@ import { TokenService } from 'src/app/common/services/token.service';
 export class HomeComponent  implements OnInit {
 
   constructor(
-    private _tokenService: TokenService,
-    private _bleService: BleService
+    private _tokenService: TokenService
   ) { }
 
   name: string = 'Miguel'
-  deviceConnected$ = this._bleService.actualDevice$;
-  deviceConnectedName: string | null | undefined = null;
 
   ngOnInit() {
     this.getName();
-
-    this.deviceConnected$.asObservable().subscribe(
-      res => {
-        this.deviceConnectedName = res?.name;
-      }
-    )
   }
 
   getName(){
@@ -34,5 +25,6 @@ export class HomeComponent  implements OnInit {
 
     this.name = user.username
   }
+
 
 }

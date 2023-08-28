@@ -5,8 +5,7 @@ import { SettingsRoutingModule } from './settings-routing.module';
 import { IonicModule } from '@ionic/angular';
 import { SettingsComponent } from './settings.component';
 import { CommonUtilsModule } from 'src/app/common/common-utils.module';
-import { BleService } from 'src/app/common/services/ble.service';
-
+import { ActualDataService } from 'src/app/common/services/actual-data.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +18,7 @@ import { BleService } from 'src/app/common/services/ble.service';
     CommonUtilsModule
   ],
   providers: [
-    BleService
+    ActualDataService
   ]
 })
 export class SettingsModule { }

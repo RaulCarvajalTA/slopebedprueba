@@ -1,0 +1,107 @@
+.bedcontainer{
+    width: 100%;
+    height: 85%;
+    border-radius: 10px;
+    padding: 2em;
+}
+
+.bedcomplete{
+    display: flex;
+    flex-direction: column;
+}
+
+.bedbase{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .bedcolumn {
+        width: 10px;
+        height: 50px;
+        background-color: gray;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+    }
+
+    .bedfloorbase {
+        width: 250px;
+        height: 10px;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        background-color: gray;
+    }
+}
+
+.bedmovile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transform: rotate(0deg);
+
+    .linemovil {
+        width: 310px;
+        height: 10px;
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+        background-color: gray;
+    }
+
+    .columnscontainer{
+        display: flex;
+        flex-direction: row;
+
+        .mattress{
+            width: 300px;
+            height: 20px;
+            display: flex;
+            flex-direction: column;
+
+            .pillow {
+                width: 40px;
+                height: 10px;
+                border-top-right-radius: 3px;
+                border-top-left-radius: 3px;
+                background-color: white;
+                border: 1px solid black;
+                z-index: 10;
+            }
+              
+
+            .bandb{
+                display: flex;
+                flex-direction: row;
+
+                .blanket {
+                    width: 250px;
+                    height: 10px;
+                    border-top-right-radius: 3px;
+                    background-color: blue;
+                    margin-top: 10px;
+                }
+        
+                .bedsheet {
+                    width: 50px;
+                    height: 20px;
+                    border-top-right-radius: 5px;
+                    border-top-left-radius: 3px;
+                    background-color: white;
+                    border: 1px solid black;
+                }
+            }
+
+        }
+
+        .linemovilbottom {
+            width: 10px;
+            height: 20px;
+            border-top-right-radius: 3px;
+            border-top-left-radius: 3px;
+            background-color: gray;
+        }
+
+        
+    }
+
+}

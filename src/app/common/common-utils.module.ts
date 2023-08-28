@@ -7,12 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { TokenService } from './services/token.service';
 import { BleService } from './services/ble.service';
-import { BLE } from '@awesome-cordova-plugins/ble/ngx';
+import { BedAnimationComponent } from './components/bed-animation/bed-animation.component';
+import { ActualDataService } from './services/actual-data.service';
 
 
 @NgModule({
   declarations: [
-    ToolbarComponent
+    ToolbarComponent,
+    BedAnimationComponent
   ],
   imports: [
     CommonModule,
@@ -23,10 +25,11 @@ import { BLE } from '@awesome-cordova-plugins/ble/ngx';
     AuthService,
     TokenService,
     BleService,
-    BLE
+    ActualDataService
   ],
   exports: [
-    ToolbarComponent
+    ToolbarComponent,
+    BedAnimationComponent
   ]
 })
 export class CommonUtilsModule { }

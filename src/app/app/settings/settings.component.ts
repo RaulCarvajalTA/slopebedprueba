@@ -1,5 +1,6 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { BLEDevice } from 'src/app/common/interfaces/device.interface';
+import { ActualDataService } from 'src/app/common/services/actual-data.service';
 import { BleService } from 'src/app/common/services/ble.service';
 
 @Component({
@@ -11,7 +12,8 @@ export class SettingsComponent  implements OnInit {
 
   constructor(
     private ngZone: NgZone,
-    private _bleService: BleService
+    private _bleService: BleService,
+    private _actualData: ActualDataService
   ) { }
 
   devices: BLEDevice[] = [];
@@ -51,9 +53,11 @@ export class SettingsComponent  implements OnInit {
   }
 
   connectTo(device: BLEDevice){
-    this.stopScan();
-    this.deviceConected = device;
-    this._bleService.connectDevice(device);
+    if(!this.deviceConected){
+      this.stopScan();
+      this.deviceConected = device;
+      this._bleService.connectDevice(device);
+    }
   }
 
   disconnectTo(device: BLEDevice){
@@ -67,6 +71,19 @@ export class SettingsComponent  implements OnInit {
     }else{
       this.connectTo(device);
     }
+  }
+
+  counter: number = 0;
+  publish(){
+    this.counter ++
+    this._actualData.setActualDevice(
+      {
+        id: '',
+        name: 'PRUEBA '+this.counter,
+        advertising : {},
+        rssi: 1
+      }
+    )
   }
 
 }

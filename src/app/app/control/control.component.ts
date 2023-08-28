@@ -10,26 +10,24 @@ export class ControlComponent  implements OnInit {
 
   platformName: string = '';
 
-  constructor(private platform: Platform) {
-    this.detectPlatform();
+  angle: number = 0
+
+  constructor() {
   }
 
   ngOnInit() {}
 
-  async detectPlatform() {
-    await this.platform.ready();
-
-    if (this.platform.is('cordova')) {
-      if (this.platform.is('android')) {
-        this.platformName = 'Android';
-      } else if (this.platform.is('ios')) {
-        this.platformName = 'iOS';
-      } else {
-        this.platformName = 'Cordova (otra)';
-      }
-    } else {
-      this.platformName = 'Navegador';
-    }
+  upButton(){
+    this.angle++;
   }
+
+  downButton(){
+    this.angle--;
+  }
+
+  zeroButton(){
+    this.angle = 0;
+  }
+
 
 }

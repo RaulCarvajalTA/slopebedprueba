@@ -1,34 +1,51 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { User } from '../../interfaces/user.interface';
 import { TokenService } from '../../services/token.service';
 import { AuthService } from '../../services/auth.service';
-import { BleService } from '../../services/ble.service';
-import { BLEDevice } from '../../interfaces/device.interface';
+import { ActualDataService } from '../../services/actual-data.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss'],
 })
-export class ToolbarComponent  implements OnInit {
+export class ToolbarComponent  implements OnInit, OnDestroy {
 
   constructor(
     private _tokenService: TokenService,
     private _authService: AuthService,
-    private _bleService: BleService
-  ) { }
+    private _actualData: ActualDataService
+  ) { 
+    this.getActualDeviceName();
+  }
 
   @Input() title: string = '';
   name: string = 'x'
-  deviceConnected$ = this._bleService.actualDevice$;
+  deviceConectedName: string= '';
 
+  actualDevice$ =this._actualData.actualDevice$;
+  private actualDeviceSubsciption!: Subscription;
   ngOnInit() {
     this.getName();
   }
 
+  ngOnDestroy(): void {
+    console.log("Desubcscrito desde Toolbar -",this.title)
+    this.actualDeviceSubsciption.unsubscribe();
+  }
+
+  getActualDeviceName(){
+    this.actualDeviceSubsciption = this.actualDevice$.subscribe(
+      actualDevice => {
+        console.log("Subcscrito desde Toolbar -",this.title)
+        this.deviceConectedName = actualDevice?(actualDevice.name?actualDevice.name:'Unnamed'):'None';
+      }
+    )
+  }
+
   getName(){
     let user:User = this._tokenService.getUser();
-
     this.name = user.username
   }
 

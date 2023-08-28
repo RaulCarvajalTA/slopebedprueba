@@ -5,6 +5,7 @@ import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { CommonUtilsModule } from 'src/app/common/common-utils.module';
 import { BleService } from 'src/app/common/services/ble.service';
+import { ActualDataService } from 'src/app/common/services/actual-data.service';
 
 
 @NgModule({
@@ -17,11 +18,8 @@ import { BleService } from 'src/app/common/services/ble.service';
     HomeRoutingModule,
     CommonUtilsModule
   ],
-  exports: [
-    HomeComponent
-  ],
   providers: [
-    BleService
+    ActualDataService
   ]
 })
 export class HomeModule { }
