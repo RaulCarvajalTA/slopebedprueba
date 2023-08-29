@@ -31,14 +31,12 @@ export class ToolbarComponent  implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    console.log("Desubcscrito desde Toolbar -",this.title)
     this.actualDeviceSubsciption.unsubscribe();
   }
 
   getActualDeviceName(){
     this.actualDeviceSubsciption = this.actualDevice$.subscribe(
       actualDevice => {
-        console.log("Subcscrito desde Toolbar -",this.title)
         this.deviceConectedName = actualDevice?(actualDevice.name?actualDevice.name:'Unnamed'):'None';
       }
     )

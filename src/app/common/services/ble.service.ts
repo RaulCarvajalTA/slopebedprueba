@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BLE } from '@awesome-cordova-plugins/ble/ngx';
 import { BLEDevice } from '../interfaces/device.interface';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { ActualDataService } from './actual-data.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,24 +10,10 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class BleService {
 
   constructor(
-    private ble: BLE
+    private ble: BLE,
+    private _actualDataService: ActualDataService
   ) { }
 
-  actualDevice$: BehaviorSubject<BLEDevice> = new BehaviorSubject<BLEDevice>(
-    {
-      id: '',
-      name: 'none',
-      advertising : {},
-      rssi: 1
-    } 
-  );
-
-  noneDevice: BLEDevice = {
-      id: '',
-      name: 'none',
-      advertising : {},
-      rssi: 1
-  };
 
   startScanDevices(){
     console.log('BLE - Start Scanning')
@@ -40,25 +27,18 @@ export class BleService {
 
   connectDevice(device: BLEDevice){
     console.log('BLE - Connect')
-    /*return this.ble.connect(device.id).subscribe(
+    return this.ble.connect(device.id).subscribe(
       peripheralData => {
-        //this.actualDevice$.next(peripheralData);
+        this._actualDataService.setActualDevice(peripheralData);
       }
-    );*/
+    );
   }
 
   disconnectDevice(device: BLEDevice){
     console.log('BLE - Disconnect')
-    /*return this.ble.disconnect(device.id).then(() => {
-      //this.actualDevice$.next(null);
-    });*/
+    return this.ble.disconnect(device.id).then(() => {
+      this._actualDataService.setActualDevice(null);
+    });
   }
 
-  setDeviceSelected(device: BLEDevice) {
-    this.actualDevice$.next(device);
-  }
-  
-  getDeviceSelected(): Observable<BLEDevice> {
-    return this.actualDevice$.asObservable();
-  }
 }

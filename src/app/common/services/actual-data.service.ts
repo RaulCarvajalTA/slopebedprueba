@@ -17,7 +17,7 @@ export class ActualDataService {
   working$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   angle$: BehaviorSubject<number> = new BehaviorSubject<number>(0.0);
 
-  setActualDevice(data: BLEDevice) {
+  setActualDevice(data: BLEDevice | null) {
     this.actualDevice.next(data);
   }
 

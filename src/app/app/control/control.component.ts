@@ -15,7 +15,8 @@ export class ControlComponent  implements OnInit {
   constructor() {
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   upButton(){
     this.angle++;

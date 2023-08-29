@@ -23,21 +23,25 @@
 
   <div class="row mt-5">
     <div class="col">
-      <ion-fab-button class="mx-auto" (click)="upButton()">
-        <ion-icon name="chevron-up"></ion-icon>
-      </ion-fab-button>
-    </div>
-    <div class="col">
-      <ion-fab-button class="mx-auto" (click)="zeroButton()">
-        <ion-icon name="bed"></ion-icon>0°
-      </ion-fab-button>
-    </div>
-    <div class="col">
-      <ion-fab-button class="mx-auto" (click)="downButton()">
-        <ion-icon name="chevron-down"></ion-icon>
-      </ion-fab-button>
+        <!-- Tab bar -->
+        <ion-tab-bar class="button-bar">
+          <ion-tab-button (click)="upButton()">
+            <ion-icon name="chevron-up"></ion-icon>
+            <ion-label>Up</ion-label>
+          </ion-tab-button>
+          <ion-tab-button (click)="zeroButton()">
+            <ion-icon name="refresh"></ion-icon>
+            <ion-label>Zero Deg.</ion-label>
+          </ion-tab-button>
+          <ion-tab-button (click)="downButton()">
+            <ion-icon name="chevron-down"></ion-icon>
+            <ion-label>Down</ion-label>
+          </ion-tab-button>
+        </ion-tab-bar>
     </div>
   </div>
+
+  
 
 
 </ion-content>

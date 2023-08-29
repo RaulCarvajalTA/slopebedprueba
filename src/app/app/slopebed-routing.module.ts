@@ -1,6 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsComponent } from './tabs/tabs.component';
+import { HomeComponent } from './home/home.component';
+import { ControlComponent } from './control/control.component';
+import { MyProgramsComponent } from './my-programs/my-programs.component';
+import { ProgramsComponent } from './programs/programs.component';
+import { DocumentationComponent } from './documentation/documentation.component';
+import { SettingsComponent } from './settings/settings.component';
 
 const routes: Routes = [
   {
@@ -9,27 +15,27 @@ const routes: Routes = [
     children: [
       {
         path: 'home',
-        loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
+        component: HomeComponent
       },
       {
         path: 'control',
-        loadChildren: () => import('./control/control.module').then(m => m.ControlModule)
+        component: ControlComponent
       },
       {
         path: 'my-programs',
-        loadChildren: () => import('./my-programs/my-programs.module').then(m => m.MyProgramsModule)
+        component: MyProgramsComponent
       },
       {
         path: 'programs',
-        loadChildren: () => import('./programs/programs.module').then(m => m.ProgramsModule)
+        component: ProgramsComponent
       },
       {
         path: 'documentation',
-        loadChildren: () => import('./documentation/documentation.module').then(m => m.DocumentationModule)
+        component: DocumentationComponent
       },
       {
         path: 'settings',
-        loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule)
+        component: SettingsComponent
       },
       {
         path: '',

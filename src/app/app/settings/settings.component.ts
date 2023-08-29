@@ -73,17 +73,5 @@ export class SettingsComponent  implements OnInit {
     }
   }
 
-  counter: number = 0;
-  publish(){
-    this.counter ++
-    this._actualData.setActualDevice(
-      {
-        id: '',
-        name: 'PRUEBA '+this.counter,
-        advertising : {},
-        rssi: 1
-      }
-    )
-  }
 
 }
