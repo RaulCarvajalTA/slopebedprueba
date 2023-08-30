@@ -1,4 +1,5 @@
-import { Component, NgZone, OnInit } from '@angular/core';
+import { Component, NgZone, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { BLEDevice } from 'src/app/common/interfaces/device.interface';
 import { ActualDataService } from 'src/app/common/services/actual-data.service';
 import { BleService } from 'src/app/common/services/ble.service';
@@ -8,7 +9,7 @@ import { BleService } from 'src/app/common/services/ble.service';
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss'],
 })
-export class SettingsComponent  implements OnInit {
+export class SettingsComponent  implements OnInit, OnDestroy {
 
   constructor(
     private ngZone: NgZone,
@@ -18,9 +19,25 @@ export class SettingsComponent  implements OnInit {
 
   devices: BLEDevice[] = [];
   scanning: boolean = false;
-  deviceConected: BLEDevice | undefined = undefined;
+  
+  actualDevice$ = this._actualData.actualDevice$;
+  actualDevice: BLEDevice | null = null;
+  private actualDeviceSubsciption!: Subscription;
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getActualDevice();
+  }
+
+  ngOnDestroy(): void {
+    this.actualDeviceSubsciption.unsubscribe();
+  }
+
+  getActualDevice(){
+    this.actualDeviceSubsciption = this._actualData.actualDevice$
+    .subscribe(
+      device => this.actualDevice = device
+    )
+  }
 
   startScan(){
     this.scanning = true;
@@ -53,25 +70,23 @@ export class SettingsComponent  implements OnInit {
   }
 
   connectTo(device: BLEDevice){
-    if(!this.deviceConected){
+    if(!this.actualDevice){
       this.stopScan();
-      this.deviceConected = device;
       this._bleService.connectDevice(device);
     }
   }
 
   disconnectTo(device: BLEDevice){
-    this.deviceConected = undefined;
+    this.actualDevice = null;
     this._bleService.disconnectDevice(device);
   }
 
   connectOrDisconnect(device: BLEDevice){
-    if(this.deviceConected){
+    if(this.actualDevice){
       this.disconnectTo(device);
     }else{
       this.connectTo(device);
     }
   }
-
 
 }

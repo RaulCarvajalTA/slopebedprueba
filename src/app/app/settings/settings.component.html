@@ -14,7 +14,7 @@
     </div>
   </div>
 
-  <div class="row mt-2" *ngIf="!deviceConected">
+  <div class="row mt-2" *ngIf="!actualDevice">
     <div class="col mx-2">
       <ion-button expand="block" (click)="startScan()" *ngIf="!scanning">
         Start Scan
@@ -25,10 +25,10 @@
     </div>
   </div>
 
-  <div class="row mt-2" *ngIf="deviceConected">
+  <div class="row mt-2" *ngIf="actualDevice">
     <div class="col mx-2">
-      <ion-button expand="block" (click)="disconnectTo(deviceConected)" *ngIf="!scanning">
-        Disconnect of {{deviceConected.name}}
+      <ion-button expand="block" (click)="disconnectTo(actualDevice)" *ngIf="!scanning">
+        Disconnect of {{actualDevice.name}}
       </ion-button>
     </div>
   </div>
@@ -39,7 +39,7 @@
         <ion-card-header>
           <ion-card-title><ion-icon name="bed"></ion-icon> {{device.name || 'Unnamed'}}</ion-card-title>
           <ion-card-subtitle>{{device.id}}</ion-card-subtitle>
-          <ion-card-subtitle color="success" *ngIf="deviceConected"> {{deviceConected.id==device.id?'Connected':''}}</ion-card-subtitle>
+          <ion-card-subtitle color="success" *ngIf="actualDevice"> {{actualDevice.id==device.id?'Connected':''}}</ion-card-subtitle>
         </ion-card-header>
       </ion-card>
     </div>
